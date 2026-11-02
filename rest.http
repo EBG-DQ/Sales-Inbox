@@ -1,0 +1,60 @@
+GET http://localhost:3001/health
+
+###
+GET http://localhost:3001/leads
+
+###
+POST http://localhost:3001/leads
+Content-Type: application/json
+
+{
+  "name": "Morgan Chen",
+  "email": "morgan.chen@example.com",
+  "phone": "+1-555-0102"
+}
+
+###
+GET http://localhost:3001/leads/34431fa2-c67f-48b3-8b7b-9f9c025f5c96
+
+###
+PATCH http://localhost:3001/leads/34431fa2-c67f-48b3-8b7b-9f9c025f5c96
+Content-Type: application/json
+
+{
+  "status": "WORKING"
+}
+
+###
+POST http://localhost:3001/leads/34431fa2-c67f-48b3-8b7b-9f9c025f5c96/activity
+Content-Type: application/json
+
+{
+  "description": "Called Morgan; requested a follow-up next week.",
+  "issuerId": "salesperson-id"
+}
+
+###
+POST http://localhost:3001/leads
+Content-Type: application/json
+
+{
+  "name": "",
+  "email": "not-an-email",
+  "phone": ""
+}
+
+###
+GET http://localhost:3001/leads/not-a-real-id
+
+###
+GET http://localhost:3001/leads?salespersonId=a28aae4f-db18-4ff8-bbc4-8195a4e61689
+
+###
+POST http://localhost:3001/leads/34431fa2-c67f-48b3-8b7b-9f9c025f5c96/convert
+Content-Type: application/json
+
+{
+  "amount": 12500,
+  "address": "42 Example Street",
+  "issuerId": "system"
+}
